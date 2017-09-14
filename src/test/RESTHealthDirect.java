@@ -24,7 +24,8 @@ public static void buildAndExecuteClientAPIReq() {
 }
 
 public static JsonPath furnishBodyAndGetResponse(String searchUrl, String jsonBody) {
-	RestAssured.proxy("proxy.lan.noggin.com.au", 3128);
+	//RestAssured.proxy("proxy.lan.noggin.com.au", 3128);
+	RestAssured.useRelaxedHTTPSValidation();
 	System.out.println(buildAPIRequestSpec().get().asString());
 	Response resp = buildAPIRequestSpec().body(jsonBody).post(searchUrl);
 	resp.prettyPeek();

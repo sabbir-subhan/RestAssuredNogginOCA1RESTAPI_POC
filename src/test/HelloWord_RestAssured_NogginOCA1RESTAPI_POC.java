@@ -32,12 +32,6 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		RestAssured.proxy("proxy.lan.noggin.com.au", 3128);
 		//RestAssured.useRelaxedHTTPSValidation();
 		
-	/*
-		System.setProperty("http.proxyHost", "proxy.lan.noggin.com.au");
-	System.setProperty("http.proxyPort", "3128");
-	System.setProperty("https.proxyHost", "proxy.lan.noggin.com.au");
-	System.setProperty("https.proxyPort", "3128");
-	*/
 	}
 	
 	
@@ -58,6 +52,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		builder.setContentType("application/json; charset=UTF-8");
 
 		RequestSpecification requestSpec = builder.build();	
+		requestSpec.log().all();
 		
 //lets print RequestSpecification
 		//System.out.println(requestSpec.head().asString());
@@ -76,7 +71,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 				
 		//ResponseBody<?> resBobdy=response.body();
 		//print response
-		 response.prettyPeek();
+		 //response.prettyPeek();
 		//status code 
 		 System.out.println("Status code:"+response.getStatusCode());
 		 //status line
@@ -127,7 +122,8 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		builder.setContentType("application/json; charset=UTF-8");
 		builder.addHeader("X-Session-ID",sessionID);//adding Session ID to header
 
-		RequestSpecification requestSpec = builder.build();	
+		RequestSpecification requestSpec = builder.build();
+		requestSpec.log().all();
 		
 //lets print RequestSpecification
 		//System.out.println(requestSpec.head().asString());
@@ -146,7 +142,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 				
 		//ResponseBody<?> resBobdy=response.body();
 		//print response
-		 response.prettyPeek();
+		 //response.prettyPeek();
 		//status code 
 		 System.out.println("Status code:"+response.getStatusCode());
 		 //status line
@@ -180,7 +176,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		builder.addHeader("X-Session-ID",sessionID);//adding Session ID to header
 
 		RequestSpecification requestSpec = builder.build();	
-		
+		requestSpec.log().all();
 //lets print RequestSpecification
 		//System.out.println(requestSpec.head().asString());
 	
@@ -197,7 +193,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 			
 		
 		//print response
-		 response.prettyPeek();
+		 //response.prettyPeek();
 		//status code 
 		 System.out.println("Status code:"+response.getStatusCode());
 		 //status line
