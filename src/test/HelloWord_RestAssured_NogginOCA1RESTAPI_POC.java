@@ -52,6 +52,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		builder.setContentType("application/json; charset=UTF-8");
 
 		RequestSpecification requestSpec = builder.build();	
+		System.out.println("**************************Start of Create Session POST*************");
 		requestSpec.log().all();
 		
 //lets print RequestSpecification
@@ -101,6 +102,9 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		 then()
 		 .body("responsePayloads.StateCode",contains("WAIT_TERMS_AND_CONDITIONS"));//using JSON Path
 		 
+		 System.out.println("**************************END of Create Session POST*************\n");
+		 
+		 
 						 
 
 	}
@@ -123,6 +127,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		builder.addHeader("X-Session-ID",sessionID);//adding Session ID to header
 
 		RequestSpecification requestSpec = builder.build();
+		System.out.println("**************************Start of Create Session PUT*************");
 		requestSpec.log().all();
 		
 //lets print RequestSpecification
@@ -153,7 +158,8 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 
 		 response.
 		 then()
-		 .body("responsePayloads.StateCode",contains("AUTHENTICATED"));	 //checking if session creation is successful 
+		 .body("responsePayloads.StateCode",contains("AUTHENTICATED"));	 //checking if session PUT is successful 
+		 System.out.println("**************************End of Create Session PUT*************\n");
 		 		 
 
 	}
@@ -176,6 +182,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		builder.addHeader("X-Session-ID",sessionID);//adding Session ID to header
 
 		RequestSpecification requestSpec = builder.build();	
+		System.out.println("**************************Start of GET Contacts*************");
 		requestSpec.log().all();
 //lets print RequestSpecification
 		//System.out.println(requestSpec.head().asString());
@@ -193,7 +200,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 			
 		
 		//print response
-		 //response.prettyPeek();
+		 response.prettyPeek();
 		//status code 
 		 System.out.println("Status code:"+response.getStatusCode());
 		 //status line
@@ -217,6 +224,7 @@ public class HelloWord_RestAssured_NogginOCA1RESTAPI_POC {
 		 
 		 String nextPageURL=jsonPath.getString("nextPageURL");
 		 System.out.println("nextPageURL:" +nextPageURL);
+		 System.out.println("**************************END of GET Contacts*************\n");
 		 		 
 
 	}
